@@ -60,12 +60,12 @@ jobs:
     steps:
     # 서버에서 Docker 이미지 실행
     - name: EC2 Docker Run
-      uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@v1.0.0
       with:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USERNAME }}
         password: ${{ secrets.EC2_PASSWORD }}
-        port: ${{ 22 }}
+        port: 22
         key: ${{ secrets.EC2_PRIVATE_KEY }}
         script: |
           docker-compose up -d
