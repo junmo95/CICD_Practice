@@ -1,0 +1,22 @@
+debug: false
+
+management.endpoints.web.exposure.include: "*"
+
+logging:
+  level:
+    com.junmo.board_project: debug
+    org.springframework.web.servlet: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+
+
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#  jpa:
+#    database-platform: org.hibernate.dialect.MySQL8Dialect
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: none
+
+
+
