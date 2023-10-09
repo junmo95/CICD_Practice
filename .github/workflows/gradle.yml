@@ -67,9 +67,9 @@ jobs:
         key: ${{secrets.EC2_PRIVATE_KEY}}
         # password: ${{ secrets.EC2_PASSWORD }}
         script: |
-          docker rm test01
-          docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/test01:latest
-          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/test01:latest
+          # docker rm test01
+          # docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/test01:latest
+          # docker pull ${{ secrets.DOCKERHUB_USERNAME }}/test01:latest
           docker-compose up -d
 
 
