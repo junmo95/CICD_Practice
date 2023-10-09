@@ -46,6 +46,14 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
+    - name: Build and push Docker Spring Project Image
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        dockerfile: Dockerfile
+        push: true
+        tags: ${{ secrets.DOCKERHUB_REPOSITORY }}/test01:latest
+
     # 서버에서 Docker 이미지 실행
     - name: EC2 Docker Run
       uses: appleboy/ssh-action@master
@@ -55,8 +63,8 @@ jobs:
         password: ${{ secrets.EC2_PASSWORD }}
         script: |
           docker rm eatitdog
-          docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/eatitdog:latest
-          docker pull ${{ secrets.DOCKERHUB_PASSWORD }}/eatitdog:latest
+          docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/test01:latest
+          docker pull ${{ secrets.DOCKERHUB_PASSWORD }}/test01:latest
           docker-compose up -d
 
 
