@@ -35,8 +35,8 @@ jobs:
     # gradlew wrappe 통해 빌드된거 밀고, jar 파일생성
     - name: Build Spring Project
       run: 
-        chmod +x ./gradlew
-        ./gradlew wrapper clean bootjar
+        chmod +x gradlew
+        gradlew wrapper clean bootjar
 
     # Build & Push Docker Image
     - name: Login to DockerHub
