@@ -36,7 +36,7 @@ jobs:
     - name: Build Spring Project
       run: 
         chmod +x gradlew
-        gradlew wrapper clean bootjar
+        ./gradlew wrapper clean bootjar
 
     # Build & Push Docker Image
     - name: Login to DockerHub
