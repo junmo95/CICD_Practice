@@ -53,7 +53,11 @@ jobs:
         dockerfile: Dockerfile
         push: true
         tags: ${{ secrets.DOCKERHUB_REPOSITORY }}/test01:latest
-
+        
+  deploy: 
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
     # 서버에서 Docker 이미지 실행
     - name: EC2 Docker Run
       uses: appleboy/ssh-action@master
@@ -62,9 +66,9 @@ jobs:
         username: ${{ secrets.EC2_USERNAME }}
         password: ${{ secrets.EC2_PASSWORD }}
         script: |
-          docker rm eatitdog
+          docker rm test01
           docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/test01:latest
-          docker pull ${{ secrets.DOCKERHUB_PASSWORD }}/test01:latest
+          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/test01:latest
           docker-compose up -d
 
 
