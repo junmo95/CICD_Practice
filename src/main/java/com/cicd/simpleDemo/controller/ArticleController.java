@@ -1,35 +1,20 @@
 package com.cicd.simpleDemo.controller;
 
-import com.cicd.simpleDemo.domain.dto.ArticleDto;
-import com.cicd.simpleDemo.service.ArticleService;
+import com.cicd.simpleDemo.domain.dto.HelloDTO;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
 @RequestMapping("/article")
 @RestController
 public class ArticleController {
 
-    private final ArticleService articleService;
-
-
     @GetMapping("/hello")
-    public String readHello() {
+    public HelloDTO readHello() {
         String hello = "Hello World";
-        return hello;
+        return HelloDTO.of(hello);
     }
-
-    @PostMapping
-    public ArticleDto createArticle(@RequestBody ArticleDto request) {
-        ArticleDto articleDto = articleService.create(request);
-        return articleDto;
-    }
-
-    @GetMapping("/{articleId}")
-    public ArticleDto readArticle(@PathVariable Long articleId) {
-        return articleService.get(articleId);
-    }
-
-
 
 }

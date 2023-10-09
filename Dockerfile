@@ -1,8 +1,8 @@
 FROM openjdk:17-jdk-slim
 
 WORKDIR /app
-COPY build/libs/simpleDemo-0.0.1-SNAPSHOT.jar app.jar
+COPY /build/libs/simpleDemo-SimpleDemo-v1.jar app.jar
 
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+CMD ["java", "-jar", "app.jar"]
