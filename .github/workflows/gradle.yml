@@ -64,7 +64,8 @@ jobs:
       with:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USERNAME }}
-        password: ${{ secrets.EC2_PASSWORD }}
+        key: ${{secrets.EC2_PRIVATE_KEY}}
+        # password: ${{ secrets.EC2_PASSWORD }}
         script: |
           docker rm test01
           docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/test01:latest
