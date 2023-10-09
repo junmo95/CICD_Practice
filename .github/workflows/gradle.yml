@@ -35,7 +35,7 @@ jobs:
     # gradlew wrappe 통해 빌드된거 밀고, jar 파일생성
     - name: Build Spring Project
       run: 
-        chmod +x gradlew
+        chmod +x ./gradlew
         ./gradlew wrapper 
         ./gradlew clean bootjar
 
