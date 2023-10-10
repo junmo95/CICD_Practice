@@ -34,4 +34,4 @@ jobs:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
           body: ${{ steps.changelog.outputs.changes }}
-          previous_release: v1.0.0
+          # previous_release: v1.0.0
